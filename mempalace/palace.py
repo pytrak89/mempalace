@@ -147,8 +147,6 @@ def _candidate_entity_words(text: str) -> list:
         from .i18n import get_entity_patterns
 
         patterns = get_entity_patterns(MempalaceConfig().entity_languages)
-        # candidate_patterns are pre-wrapped with boundary + capture group
-        # by get_entity_patterns (#932), compile directly without re-wrapping.
         rxs = []
         for pat in patterns["candidate_patterns"]:
             try:
